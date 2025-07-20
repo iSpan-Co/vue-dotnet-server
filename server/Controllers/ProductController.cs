@@ -8,15 +8,19 @@ namespace server.Controllers
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
-        private List<ProductDto> products = new ProductData().datas;
+        private List<ProductDto> products = ProductData.datas;
 
         [HttpPost("query")]
         public IActionResult GetAllProducts(QueryDto query)
         {
-            var product = products.Where(x => x.status == true);
-            if (!string.IsNullOrEmpty(query.category)) product = product.Where(x => x.category == query.category);
-            if (!string.IsNullOrEmpty(query.keyword)) product = product.Where(x => x.name.Contains(query.keyword));
-            return Ok(products);
+            var filteredProducts = products.Where(x => x.status == true);
+            if (!string.IsNullOrEmpty(query.category)) filteredProducts = filteredProducts.Where(x => x.category == query.category);
+            if (!string.IsNullOrEmpty(query.keyword)) filteredProducts = filteredProducts.Where(x => x.name.Contains(query.keyword));
+            if (query.priceLower.HasValue) filteredProducts = filteredProducts.Where(x => x.nowPrice >= query.priceLower);
+            if (query.priceUpper.HasValue) filteredProducts = filteredProducts.Where(x => x.nowPrice <= query.priceUpper);
+            if (query.rateLower.HasValue) filteredProducts = filteredProducts.Where(x => x.rate >= query.rateLower);
+
+            return Ok(filteredProducts);
         }
 
         [HttpGet("{id}")]
@@ -67,7 +71,7 @@ namespace server.Controllers
             var product = products.FirstOrDefault(p => p.id == id);
             if (product == null) return NotFound(new { message = "找不到商品" });
             products.Remove(product);
-            return Ok();
+            return Ok(product);
         }
     }
 }

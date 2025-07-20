@@ -8,7 +8,7 @@ namespace server.Controllers
     [Route("api/[controller]")]
     public class CategoryController : ControllerBase
     {
-        private List<ProductDto> products = new ProductData().datas;
+        private List<ProductDto> products = ProductData.datas;
 
         [HttpGet]
         public IActionResult GetCategories()

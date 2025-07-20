@@ -8,7 +8,7 @@ namespace server.Controllers
     [Route("api/[controller]")]
     public class MemberController : ControllerBase
     {
-        private List<MemberDto> members = new MemberData().datas;
+        private List<MemberDto> members = MemberData.datas;
 
         [HttpPost("Login")]
         public IActionResult Login(LoginDto param)

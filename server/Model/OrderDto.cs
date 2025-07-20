@@ -3,12 +3,14 @@
     public class OrderDto
     {
         public int id { get; set; }
+        public string payType { get; set; }
         public string orderId { get; set; }
         public int memberId { get; set; }
         public DateTime orderDate { get; set; }
         public int totalPrice { get; set; }
         public int taxFee { get; set; }
         public bool status { get; set; }
+        public List<OrderDetailDto> orderDetails { get; set; }
     }
 
     public class OrderDetailDto
@@ -23,6 +25,7 @@
     public class NewOrderDto
     {
         public int memberId { get; set; }
+        public string payType { get; set; }
         public DateTime orderDate { get; set; }
         public int totalPrice { get; set; }
         public int taxFee { get; set; }

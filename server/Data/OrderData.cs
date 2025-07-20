@@ -4,7 +4,7 @@ namespace server.Data
 {
     public class OrderData
     {
-        public List<OrderDto> datas = new()
+        public static List<OrderDto> datas = new()
         {
             // 訂單 1 - 小橘的訂單
             new OrderDto
@@ -41,7 +41,7 @@ namespace server.Data
             }
         };
 
-        public List<OrderDetailDto> details = new()
+        public static List<OrderDetailDto> details = new()
         {
             // 訂單 1 的明細
             new OrderDetailDto { detailId = 1, orderId = "ORD001", productId = 2, price = 3989, quantity = 1 },

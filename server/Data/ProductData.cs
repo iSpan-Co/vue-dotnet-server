@@ -4,7 +4,7 @@ namespace server.Data
 {
     public class ProductData
     {
-        public List<ProductDto> datas = new()
+        public static List<ProductDto> datas = new()
         {
             new ProductDto { id = 1, name = "Fitbit Sense 2 智慧手錶", originalPrice = 1599, nowPrice = 1351, category = "穿戴裝置", stock = 80, description = "智慧手錶，健康監測功能", status = true, image = "/images/products/1.png", rate = 4 },
             new ProductDto { id = 2, name = "Apple iPhone 13 Pro（天峰藍）", originalPrice = 4590, nowPrice = 3989, category = "手機", stock = 89, description = "Apple旗艦手機", status = true, image = "/images/products/2.png", rate = 5 },
