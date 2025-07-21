@@ -38,7 +38,7 @@ namespace server.Controllers
             {
                 id = products.Max(p => p.id) + 1,
                 name = product.name,
-                originalPrice = product.originalPrice,
+                originalPrice = product.nowPrice,
                 nowPrice = product.nowPrice,
                 category = product.category,
                 rate = random.Next(1, 6),
@@ -57,7 +57,7 @@ namespace server.Controllers
             var data = products.FirstOrDefault(p => p.id == id);
             if (data == null) return NotFound(new { message = "找不到商品" });
             data.name = product.name;
-            data.originalPrice = product.originalPrice;
+            data.originalPrice = data.nowPrice;
             data.nowPrice = product.nowPrice;
             data.category = product.category;
             data.stock = product.stock;

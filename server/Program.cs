@@ -8,21 +8,21 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // 允許 CORS 跨域請求 - 這行是關鍵！
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(builder =>
-    {
-        builder.WithOrigins("http://localhost:8080") // 指定允許的前端來源
-               .AllowAnyHeader()
-               .AllowAnyMethod()
-               .AllowCredentials(); // 允許憑證
-    });
-});
+//builder.Services.AddCors(options =>
+//{
+//    options.AddDefaultPolicy(builder =>
+//    {
+//        builder.WithOrigins("http://localhost:8080") // 指定允許的前端來源
+//               .AllowAnyHeader()
+//               .AllowAnyMethod()
+//               .AllowCredentials(); // 允許憑證
+//    });
+//});
 
 var app = builder.Build();
 
 // 啟用 CORS - 這行是關鍵！
-app.UseCors();
+//app.UseCors();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

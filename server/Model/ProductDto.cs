@@ -16,10 +16,10 @@
 
     public class QueryDto
     {
-        public string? keyword { get; set; }
-        public string? category { get; set; }
-        public int? priceLower { get; set; }
-        public int? priceUpper { get; set; }
-        public int? rateLower { get; set; }
+        public string? keyword { get; set; } = null;
+        public string? category { get; set; } = null;
+        public int? priceLower { get; set; } = null;
+        public int? priceUpper { get; set; } = null;
+        public int? rateLower { get; set; } = null;
     }
 }
