@@ -12,7 +12,7 @@ builder.Services.AddSwaggerGen();
 //{
 //    options.AddDefaultPolicy(builder =>
 //    {
-//        builder.WithOrigins("http://localhost:8080") // 指定允許的前端來源
+//        builder.WithOrigins("http://localhost:5173") // 指定允許的前端來源
 //               .AllowAnyHeader()
 //               .AllowAnyMethod()
 //               .AllowCredentials(); // 允許憑證
